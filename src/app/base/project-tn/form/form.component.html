@@ -1,7 +1,8 @@
 <mat-form-field [formGroup]="tmp1">
     <mat-label>tmp</mat-label>
-    <input matInput appValidate formControlName="tmp" [value]="'aiueo'" />
-    <mat-error>
-        エラー
+    <input matInput appValidate [default]="'aiueo'" formControlName="tmp" [value]="'aiueo'" />
+    <mat-error *ngIf="tmp1.controls.tmp.errors !== null">
+        <span *ngIf="tmp1.controls.tmp.errors.pristine !== undefined">変更してください</span>
+        <span *ngIf="tmp1.controls.tmp.errors.required !== undefined">入力必須</span>
     </mat-error>
 </mat-form-field>
